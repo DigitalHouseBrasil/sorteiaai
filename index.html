@@ -1,134 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Aula 1</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      text-align: center;
-      font-family: monospace;
-    }
-    button{
-      padding: 20px 50px;
-      font-size: 20px;
-      background-color: red;
-      color: #fff;
-      border: none;
-      text-transform: uppercase;
-      margin: 10px;
-      outline: none;
-      cursor: pointer;
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteio de Grupos</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+  </head>
+  <body>
+    <header>
+      <img src="assets/images/logo.png" alt="Digital House" />
+      <h1>Sorteio de Grupos</h1>
+    </header>
 
-    }
-    p{
-      font-size: 16px;
-    }
-    div{
-      width: 250px;
-      border: 1px solid #ccc;
-      display: inline-block;
-      margin: 20px;
-    }
-  </style>
-</head>
+    <section>
+      <button id="sortButton">Bora!</button>
+      <div id="result"></div>
+    </section>
 
-<body>
-  <h1>Sorteio de Grupos</h1>
-  <button onclick="random()">Bora!</button>
-  <br>
-  <div>
-    <h2>Grupo 1</h2>
-    <p id="grupo1"></p>
-  </div>
-  <div>
-    <h2>Grupo 2</h2>
-    <p id="grupo2"></p>
-  </div>
-  <div>
-    <h2>Grupo 3</h2>
-    <p id="grupo3"></p>
-  </div>
-  <div>
-    <h2>Grupo 4</h2>
-    <p id="grupo4"></p>
-  </div>
- 
+    <script src="app.js"></script>
+    <script>
+      const studentsByGroup = 5
 
-  <script>
-    function random() {
-      let classe = [
-        "Jean",
-        "Rafael",
-        "thiago",
-        "Camila",
-        "Jose",
-        "Leonardo",
-        "Thulio",
-        "Luiz",
-        "Guilherme Luiz",
-        "Caio",
-        "Cayo",
-        "Abner",
-        "Pedro",
-        "Dinara",
-        "Aline",
-        "Otto",
-        "Guilherme Muniz",
-        "Guilherme Peres",
-        "Natasha",
-        "Guilheme Alves"
-      ];
-      let grupo1 = [];
-      let grupo2 = [];
-      let grupo3 = [];
-      let grupo4 = [];
-      let grupo5 = [];
-      let grupo6 = [];
-      let grupo7 = [];
-      let grupo8 = [];
-      let i = 0;
-     
-        while (i < 5) {
-          let add = classe.splice(Math.floor(Math.random() * classe.length), 1)
-          if (grupo1.indexOf(add) < 0) {
-            grupo1.push(add)
-          } 
-          i++;
-        }
-        while (i < 10) {
-          let add = classe.splice(Math.floor(Math.random() * classe.length), 1)
-          if (grupo2.indexOf(add) < 0) {
-            grupo2.push(add)
-          }
-          i++;
-        }
-        while (i < 15) {
-          let add = classe.splice(Math.floor(Math.random() * classe.length), 1)
-          if (grupo3.indexOf(add) < 0) {
-            grupo3.push(add)
-          }
-          i++;
-        }
-        while (i < 20) {
-          let add = classe.splice(Math.floor(Math.random() * classe.length), 1)
-          if (grupo4.indexOf(add) < 0) {
-            grupo4.push(add)
-          }
-          i++;
-        }
-        
-      
-      document.getElementById("grupo2").innerHTML = "<p>"+grupo2[0]+"</p><p>"+grupo2[1]+"</p><p>"+grupo2[2]+"</p><p>"+grupo2[3]+"</p><p>"+grupo2[4]+"</p>";
-      document.getElementById("grupo1").innerHTML = "<p>"+grupo1[0]+"</p><p>"+grupo1[1]+"</p><p>"+grupo1[2]+"</p><p>"+grupo1[3]+"</p><p>"+grupo1[4]+"</p>";
-      document.getElementById("grupo3").innerHTML = "<p>"+grupo3[0]+"</p><p>"+grupo3[1]+"</p><p>"+grupo3[2]+"</p><p>"+grupo3[3]+"</p><p>"+grupo3[4]+"</p>";
-      document.getElementById("grupo4").innerHTML = "<p>"+grupo4[0]+"</p><p>"+grupo4[1]+"</p><p>"+grupo4[2]+"</p><p>"+grupo4[3]+"</p><p>"+grupo4[4]+"</p>";
-    
-    }
-  </script>
-</body>
+      const students = [
+        'Jean',
+        'Rafael',
+        'thiago',
+        'Camila',
+        'Jose',
+        'Leonardo',
+        'Thulio',
+        'Luiz',
+        'Guilherme Luiz',
+        'Caio',
+        'Cayo',
+        'Abner',
+        'Pedro',
+        'Dinara',
+        'Aline',
+        'Otto',
+        'Guilherme Muniz',
+        'Guilherme Peres',
+        'Natasha',
+        'Guilheme Alves',
+      ]
+
+      const sortButton = document.querySelector('#sortButton')
+
+      sortButton.addEventListener('click', () => sortGroups({
+        students,
+        studentsByGroup,
+        target: '#result'
+      }))
+    </script>
+  </body>
 
 </html>
