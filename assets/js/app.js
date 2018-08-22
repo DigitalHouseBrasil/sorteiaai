@@ -1,8 +1,5 @@
 (function() {
   const views = document.querySelectorAll('.view')
-  const addStudentsButton = document.querySelector('#addStudentsButton')
-  const sortGroupsButton = document.querySelector('#sortGroupsButton')
-  const sortOneButton = document.querySelector('#sortOneButton')
 
   const showView = (viewName) =>
     document.querySelector(viewName).classList.remove('hidden')
@@ -44,6 +41,10 @@
     showView('#sortOneView')
   }
 
+  const addStudentsButton = document.querySelector('#addStudentsButton')
+  const sortGroupsButton = document.querySelector('#sortGroupsButton')
+  const sortOneButton = document.querySelector('#sortOneButton')
+  
   addStudentsButton.addEventListener('click', showAddStudents)
   sortGroupsButton.addEventListener('click', showSortGroups)
   sortOneButton.addEventListener('click', showSortOne)
