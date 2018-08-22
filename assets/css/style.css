@@ -54,12 +54,9 @@ header button {
 }
 
 .group {
-  width: 250px;
   border-radius: 2px;
-  display: inline-block;
-  margin: 20px;
   background-color: #fff;
-  padding: 20px;
+  padding: 15px;
   color: #333;
   box-shadow: 3px 4px 10px #000;
 }
@@ -93,11 +90,16 @@ header button {
   padding: 0;
   margin: 0 auto;
   list-style: none;
-  margin-top: 40px;
   text-align: center;
 }
 
 #addStudentsView li {
   font-size: 20px;
   color: #FFF;
+}
+
+#studentsList button {
+  padding: 0px 8px;
+  font-size: 14px;
+  margin-left: 10px;
 }
