@@ -1,5 +1,4 @@
 (function() {
-  
   const views = document.querySelectorAll('.view')
   const addStudentsButton = document.querySelector('#addStudentsButton')
   const sortGroupsButton = document.querySelector('#sortGroupsButton')
@@ -8,18 +7,18 @@
   const showView = (viewName) =>
     document.querySelector(viewName).classList.remove('hidden')
 
-  const hiddenAllViews = (views) =>
+  const hideAllViews = (views) =>
     views.forEach(view => view.classList.add('hidden'))
 
-  addStudentsButton.addEventListener('click', () => {
-    hiddenAllViews(views)
+  const showAddStudents = () => {
+    hideAllViews(views)
     showView('#addStudentsView')
     const inputStudentName = document.querySelector('#studentName')
     inputStudentName.focus()
-  })
+  }
 
-  sortGroupsButton.addEventListener('click', () => {
-    hiddenAllViews(views)
+  const showSortGroups = () => {
+    hideAllViews(views)
 
     const studentsByGroup = document.querySelector('#studentsByGroup').value
 
@@ -30,18 +29,22 @@
     })
 
     showView('#sortGroupView')
-  })
+  }
+  
+  const showSortOne = () => {
+    hideAllViews(views)
 
-  sortOneButton.addEventListener('click', () => {
-    hiddenAllViews(views)
+    const totalStudents = window.studentsList.length
+    const randomStudent = Math.floor(Math.random() * totalStudents) + 0
 
-    const random = Math.floor(Math.random() * window.studentsList.length) + 0 
-    
     document.querySelector('#sortOneView').innerHTML = `
-      <h1>${window.studentsList[random]}</h1>
+      <h1>${window.studentsList[randomStudent]}</h1>
     `
 
     showView('#sortOneView')
-  })
+  }
 
+  addStudentsButton.addEventListener('click', showAddStudents)
+  sortGroupsButton.addEventListener('click', showSortGroups)
+  sortOneButton.addEventListener('click', showSortOne)
 })()

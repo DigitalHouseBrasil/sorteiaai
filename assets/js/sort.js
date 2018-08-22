@@ -39,10 +39,9 @@
     studentsByGroup,
     target,
   }) => {
-    console.log(students)
     students.sort(randomize)
 
-    let numberGroups = Math.round(students.length / studentsByGroup)
+    const numberGroups = Math.round(students.length / studentsByGroup)
     const groups = buildGroups(students, numberGroups, studentsByGroup)
     const html = Object.values(groups).map(buildHTML).join('')
 
