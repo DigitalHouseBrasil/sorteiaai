@@ -21,9 +21,11 @@
   sortGroupsButton.addEventListener('click', () => {
     hiddenAllViews(views)
 
+    const studentsByGroup = document.querySelector('#studentsByGroup').value
+
     window.sortGroups({
       students: window.studentsList,
-      studentsByGroup: 3,
+      studentsByGroup,
       target: '#sortGroupView'
     })
 
