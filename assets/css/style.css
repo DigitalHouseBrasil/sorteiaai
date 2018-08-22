@@ -1,17 +1,26 @@
 body {
   margin: 0;
   padding: 0;
+  color: #FFF;
   background-color: #333;
   font-family: monospace;
 }
 
 header {
-  display: flex;
-  justify-content: space-between;
   background-color: #000;
-  height: 57px;
   padding: 20px 50px;
   margin-bottom: 20px;
+  color: #FFF;
+}
+
+header input {
+  border: none;
+  font-size: 14px;
+  text-align: center;
+}
+
+header .logo {
+  margin-top: 30px;
 }
 
 h1 {
@@ -20,9 +29,6 @@ h1 {
 }
 
 section {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
   padding: 0 20px;
 }
 
@@ -39,9 +45,12 @@ button {
   align-self: center;
 }
 
-#result {
-  display: flex;
-  justify-content: space-between;
+header button {
+  font-size: 16px;
+}
+
+.hidden {
+  display: none;
 }
 
 .group {
@@ -63,3 +72,32 @@ button {
   font-size: 18px;
 }
 
+#sortOneView {
+  text-align: center;
+}
+
+#addStudentsView input {
+  width: 100%;
+  max-height: 50px;
+  padding: 20px 10px;
+  font-size: 20px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  box-shadow: 3px 4px 10px #000;
+}
+
+#addStudentsView ul {
+  padding: 0;
+  margin: 0 auto;
+  list-style: none;
+  margin-top: 40px;
+  text-align: center;
+}
+
+#addStudentsView li {
+  font-size: 20px;
+  color: #FFF;
+}

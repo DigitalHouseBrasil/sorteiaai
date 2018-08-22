@@ -4,54 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorteio de Grupos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" alt="Digital House" />
-      <h1>Sorteio de Grupos</h1>
+      <div class="row">
+        <div class="col-md-4">
+          <img src="assets/images/logo.png" alt="Digital House" class="logo" />
+        </div>
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-md-4">
+              <button id="addStudentsButton">Adicionar Alunos</button>
+            </div>
+            <div class="col-md-4">
+              <button id="sortGroupsButton">Sortear Grupos</button>
+              <br><br>
+              <label>Alunos por grupo: </label>
+              <br>
+              <input type="number" value="4">
+            </div>
+            <div class="col-md-4">
+              <button id="sortOneButton">Sortear um</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
 
-    <section>
-      <button id="sortButton">Bora!</button>
-      <div id="result"></div>
+    <section id="addStudentsView" class="view hidden">
+      <div class="row">
+        <div class="col-md-6">
+          <input id="studentName" type="text" placeholder="Digite o nome do aluno" />
+        </div>
+        <div class="col-md-6">
+          <ul id="studentsList"></ul>
+        </div>
+      </div>
     </section>
+    
+    <section id="sortGroupView" class="view hidden"></section>
 
-    <script src="app.js"></script>
-    <script>
-      const studentsByGroup = 5
+    <section id="sortOneView" class="view hidden"></section>
 
-      const students = [
-        'Jean',
-        'Rafael',
-        'thiago',
-        'Camila',
-        'Jose',
-        'Leonardo',
-        'Thulio',
-        'Luiz',
-        'Guilherme Luiz',
-        'Caio',
-        'Cayo',
-        'Abner',
-        'Pedro',
-        'Dinara',
-        'Aline',
-        'Otto',
-        'Guilherme Muniz',
-        'Guilherme Peres',
-        'Natasha',
-        'Guilheme Alves',
-      ]
-
-      const sortButton = document.querySelector('#sortButton')
-
-      sortButton.addEventListener('click', () => sortGroups({
-        students,
-        studentsByGroup,
-        target: '#result'
-      }))
-    </script>
+    <script src="assets/js/students.js"></script>
+    <script src="assets/js/sort.js"></script>
+    <script src="assets/js/app.js"></script>
   </body>
-
 </html>
