@@ -73,9 +73,9 @@ header button {
   text-align: center;
 }
 
-#addStudentsView input {
+#addStudentsView textarea {
   width: 100%;
-  max-height: 50px;
+  max-height: 400px;
   padding: 20px 10px;
   font-size: 20px;
   margin: 0 auto;
@@ -84,6 +84,7 @@ header button {
   border-radius: 4px;
   outline: none;
   box-shadow: 3px 4px 10px #000;
+  height: 400px;
 }
 
 #addStudentsView ul {

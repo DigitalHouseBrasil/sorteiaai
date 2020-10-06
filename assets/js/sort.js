@@ -24,11 +24,13 @@
     }, {})
 
   const buildHTML = (group, number) => `
-    <div class="group col-md-3">
-      <strong>Grupo ${number + 1}</strong>
-      <ul>    
-        <li>${group.join('</li><li>')}</li>
-      </ul>
+    <div class="col-md-3">
+      <div class="group">
+        <strong>Grupo ${number + 1}</strong>
+        <ul>    
+          <li>${group.join('</li><li>')}</li>
+        </ul>
+      </div>
     </div>
   `
 

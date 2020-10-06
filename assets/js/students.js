@@ -17,36 +17,42 @@
     window.studentsList = newStudentList    
   }
 
-  const addRemoveEvent = () => {
-    const removeButtons = document.querySelectorAll('#studentsList button')
-    removeButtons.forEach(button => {      
-      button.addEventListener('click', removeStudent)
-    })
+  const addRemoveEvent = (button) => {   
+    button.addEventListener('click', removeStudent)
   }
 
-  const addStudent = () => {
+  const addStudent = (e) => {
     const inputValue = inputStudentName.value
-    const li = document.createElement('li')
-    const studentName = document.createTextNode(inputValue)
-    const removeButton = document.createElement('button')
-    
-    removeButton.innerHTML = 'x'
-    removeButton.setAttribute('data-student', inputValue)
 
-    li.appendChild(studentName)
-    li.appendChild(removeButton)
-    studentsList.appendChild(li)
+    const students = inputValue.split(',')
+
+    students.forEach(student => {
+      student = student.trim()
+
+      if (student !== '') {
+        const li = document.createElement('li')
+        const studentName = document.createTextNode(student)
+        const removeButton = document.createElement('button')
+        
+        removeButton.innerHTML = 'x'
+        removeButton.setAttribute('data-student', student)
     
-    window.studentsList.push(inputValue)
+        li.appendChild(studentName)
+        li.appendChild(removeButton)
+        studentsList.appendChild(li)
+        
+        window.studentsList.push(student)
+    
+        addRemoveEvent(removeButton)
+      }
+    })
 
     inputStudentName.value = ''
-    inputStudentName.focus()
-
-    addRemoveEvent()
   }
 
   const checkKeyPressed = (e) => {
     if (e.charCode === 13) {
+      e.preventDefault()
       addStudent()
     }
   }
